@@ -2,6 +2,7 @@
 
 Sistema para Buffet nos permite la administración de compra y pedidos de productos del Buffet de Informática.
 Permite tener un control de stock de productos, obtener balances e ingresos y un manejo online de pedidos.
+Realizado durante 2016-2017.
 
 ## Empecemos
 Estas instrucciones brindarán una copia funcional del proyecto SIBU en tu sistema local. 
