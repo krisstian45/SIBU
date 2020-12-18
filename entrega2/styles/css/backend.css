@@ -1,0 +1,28 @@
+
+@media screen and (max-width: 800px) and (min-width: 450px) {
+    .nav {
+        display: inline;
+    }
+    .padre,
+    .right {
+        overflow: hidden;
+        margin-bottom: 1em;
+        width: 100%;
+        border-radius: 0.5em;
+    }
+    .contenedor {
+        display: inline-block;
+        width: 100%;
+    }
+    .principal {
+        width: 97%;
+        margin: 0 auto;
+    }
+    aside {
+        width: 97%;
+        margin: 0 auto;
+        margin-top: 0.5em;
+    }
+}
+
+@media screen and (max-width: 450px) {}

@@ -1,0 +1,102 @@
+{% extends "ABM.twig" %}
+
+{% block head %}
+
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/altaProducto.css">
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/listadoProductos.css">
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/paginador.css">
+    <script src="{{ path }}/styles/js/highcharts.js"></script>
+    <script src="{{ path }}/styles/js/exporting.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+    <script src="{{ path }}/styles/js/exportarAPdf.js"></script>
+
+{% endblock %}
+
+{% block content %}
+
+    <section class="principal">
+
+        {% if data.listado is empty %}
+            <h1>No se han registrado ganancias entre el {{ data.fechaInicio }} y {{ data.fechaFin }}</h1>
+        {% else %}
+            <h2>Listado de Ganancias entre el {{ data.fechaInicio }} y {{ data.fechaFin }}</h2>
+            <div id="divListado">
+                <table id="listado" class="listado">
+                    <tr class="categorias">
+                        <th id="fecha">Fecha</th>
+                        <th id="monto">Monto</th>
+                    </tr>
+                    {% for ganancia in data.listado %}
+                        <tr>
+                            <td>{{ ganancia.fecha }}</td>
+                            <td>$ {{ ganancia.monto }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div id="black" class="margen">
+            </div>
+
+            <br />
+
+            <button class="enviar" onclick="javascript:demoFromHTML()">Exportar a PDF</button>
+
+            <br />
+            <br />
+
+            <!--<div id="container" style="min-width: 310px; height: 400px; max-width: 700px; margin: 0 auto"></div>-->
+
+            <div id="container" style="height: 400px"></div>
+
+            <script type="text/javascript">
+                $(function () {
+                    Highcharts.chart('container', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Estadistica de las ganancias'
+                        },
+                        subtitle: {
+                            text: 'Ganancias entre el {{ data.fechaInicio }} y {{ data.fechaFin }}'
+                        },
+                        xAxis: {
+                            categories: [
+                                {% for ganancia in data.listado %}
+                                    '{{ ganancia.fecha }}',
+                                {% endfor %}
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Pesos ($)'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>${point.y:.2f}</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'Ganancia',
+                            data: [{% for ganancia in data.listado %} {{ ganancia.monto }}, {% endfor %}]
+                        }]
+                    });
+                });
+            </script>
+        {% endif %}
+
+    </section>
+
+{% endblock %}

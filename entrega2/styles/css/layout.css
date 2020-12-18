@@ -1,0 +1,303 @@
+/* reset inicio */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+    content: '';
+    content: none;
+}
+
+
+/* No olvides definir estilos para focus */
+
+:focus {
+    outline: 0;
+}
+
+
+/* No olvides resaltar de alguna manera el texto insertado/borrado */
+
+ins {
+    text-decoration: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+
+/* En el código HTML es necesario añadir cellspacing="0" */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* reset fin esto es todo prueba*/
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+/* con esto de box sizing no se salen de sus cajas las cosas */
+
+body {
+    background: #D7C7FF;
+}
+
+h1 {
+    color: black;
+    margin: 0.25em auto;
+    text-align: center;
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.banner {
+    font-family: Arial;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 7.5em;
+    color: blue;
+}
+
+h2 {
+    margin: 0.5em;
+}
+
+header,
+footer {
+    background-color: #A3A3A3;
+    border-radius: 0.5em;
+    text-align: center;
+    margin: 0.5em auto;
+    max-width: 1400px;
+    padding: 0.25em;
+}
+
+header {
+    background: #E4E4E4;
+    /* TODO: By emi: La imagen se esta cargando solo con conexion, habria que hacer que tambien la cargue offline */
+    background-image: url("https://grupo46.proyecto2016.linti.unlp.edu.ar/entrega2/styles/images/banner.png");
+    height: 120px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+nav .menu {
+    border-radius: 0.5em;
+    padding: 0;
+    display: flex;
+}
+
+.main {
+    border-radius: 0.5em;
+    text-align: center;
+    margin: 0.5em auto;
+    max-width: 1400px;
+    padding: 0.25em;
+    background: #F0F0F0;
+}
+
+.contenedor {
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 0;
+}
+
+.principal,
+aside {
+    text-align: center;
+    display: inline-block;
+    max-width: 1200px;
+    padding: 0.5em;
+    width: 65%;
+    border-radius: 0.5em;
+}
+
+aside {
+    width: 30.3%;
+    vertical-align: top;
+    background: #FFD2D2;
+}
+
+article {
+    background: #C29898;
+    border-radius: 0.5em;
+    min-height: 140px;
+    padding: 0.25em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+ textarea {
+    resize: none;
+    background: white;
+ }
+
+/****************************************/
+
+nav {
+    width: 100%;
+}
+
+main {
+    display: flex;
+}
+
+.menu,
+.menu ul {
+    border-radius: 0.5em;
+    background: #118F2D;
+    display: flex;
+}
+
+.menu .user {
+    width: 85%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu .sesion {
+    width: 20%;
+}
+
+.contenedor-menu .menu li ul {
+    display: none;
+}
+
+.menu a {
+    /*aca modifico las cajas del nav*/
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 1em;
+}
+
+.menu a:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.menu ul li:hover ul {
+    display: block;
+    position: absolute;
+}
+
+
+/****************************************/
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.validator {
+    border: 0;
+    width: 88px;
+    height: 31px
+}
+
+@media screen and (max-width: 800px) and (min-width: 450px) {
+    .main {
+        border-radius: 0.5em;
+        text-align: center;
+        margin: 0.5em auto;
+        max-width: 1400px;
+        padding: 0.25em;
+    }
+    .nav {
+        width: 30%;
+        margin: 0;
+    }
+    .contenedor-menu .menu .user .usuario {
+        /*mirar luego como queda si  gusta*/
+        display: none;
+    }
+    .contenedor {
+        margin: 0;
+        width: 65%;
+        display: inline-block;
+    }
+    .principal {
+        display: block;
+        width: 95%;
+        margin-bottom: 0.5em;
+    }
+    aside {
+        display: block;
+        margin-top: 0.5em;
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 450px) and (min-width: 10px) {
+    .nav {
+        padding: 0;
+        margin: 0;
+    }
+    .contenedor {
+        display: block;
+        width: 95%;
+        margin: 0 auto;
+    }
+    .principal {
+        width: 95%;
+        margin: 0;
+        margin-top: 1em;
+    }
+    article {
+        display: inline-block;
+    }
+    aside {
+        width: 95%;
+        margin-top: 0.5em;
+    }
+    .menu .user {
+        width: 100%;
+    }
+    .menu .user a {
+        width: 100%;
+    }
+}

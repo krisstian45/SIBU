@@ -1,0 +1,44 @@
+* {
+	font-weight: bold; 
+}
+#header{ 
+	background-color: red;
+	text-align: center;
+	height: 3em;
+	width: 40em;
+	padding:1px; 
+
+}
+
+#nav{
+	background-color: darkgray;
+	text-align: center;
+	height: 3em;
+	width: 40em;
+	padding:1px; 
+}
+
+#menu{
+	float:left;
+	height: 90px;
+	width: 200px;
+	background-color: yellow;
+	padding:1px; 
+}
+
+#second{
+	float: center;
+	height: 90px;
+	width: 640px;
+	background-color: orange;
+	padding:1px; 
+}
+
+#footer{
+	height: 55px;
+	width: 640px;
+	text-align:center;
+	background-color: #7FFF00;
+	clear:both;
+	padding:1px; 
+}

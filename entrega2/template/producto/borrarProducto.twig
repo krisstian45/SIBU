@@ -1,0 +1,32 @@
+{% extends "listadoProducto.twig" %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/altaProducto.css">
+{% endblock %}
+
+{% block nav %}
+            <li><a href="{{ path }}/index.php/?action=Producto&request=index">Volver</a></li>
+
+{% endblock %}
+
+{% block content %}
+	  <h2>Resolver borrar producto</h2>
+
+    <section class="principal">
+
+	{% if data.invalido is not empty %}
+		<h2>No se pudo eliminar el producto por que no existe.</h2>
+	{% elseif data.existenVentas is not empty %}
+		<h2>No se pudo eliminar el producto por que se encuntra en ventas realizadas.</h2>
+
+	{% else %}
+
+		<form  class="formato" action="{{ path }}/index.php/?action=Producto&request=operarProducto&operacion=borrar" method="post">
+			<h2>Estas a punto de eliminar un producto {{ data.nombre }}. ¿Estas seguro?</h2>
+			<input type="hidden" name="id" id="id" value="{{ data.nombre }}" >
+			<input name="borrar" class="enviar" type="submit" value="Borrar">
+		</form>
+	{% endif %}
+	</section>
+
+
+{% endblock %}

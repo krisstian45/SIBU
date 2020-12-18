@@ -1,0 +1,11 @@
+.fuse_hidden*
+.env
+final/.env
+final/vendor/bin/*
+final/config/database.php
+vendor/
+.idea/
+dummy.html
+*.sublime-workspace
+*.sublime-project
+sess_*

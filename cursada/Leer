@@ -1,0 +1,55 @@
+1- install php, phpmyadmin, apache2.
+2- en dropbox, crear la carpeta donde vamos a tener el trabajo de proyecto
+3- crear un enlace (ln -s ) a /var/www/html
+4- configurar : sudo nano /etc/apache2/sites-enabled/000-default.conf :
+http://superuser.com/questions/244245/how-do-i-get-apache-to-follow-symlinks
+
+7- si no pusheamos toadavi y queremos descartar todo lo que venimos haciendo : git stash save --keep-index
+8-git log tira el historial de commits
+si quiero volver a un commit anterior: git checkout *numero de commit*
+si quiero volver al commit mas nuevo, git checkout master
+
+
+**Tips GIT**
+para cambiar el contenido del mensaje de un commit:
+**git commit --amend**
+
+buscar algo en mi git local, por ejemplo una etiqueta div:
+**git grep div**
+
+what this does is to stash all the unstaged changes:
+**git stash save --keep-index**
+
+To truly be rid of them, you then need to follow up :
+**git stash drop**
+
+si quiero no subir un comit y respaldarlo por un rato, ya que es al pedo subirlo, puedo hacer:
+**git stash**
+
+luego, para volver al commit hago:
+**git pop**
+
+dangerous command, since it throws away all your uncommitted changes:
+**git reset --hard HEAD**
+
+esto llevaria desde mi rama "feli" hasta la rama entrega1:
+**git push origin miRama:entrega1**
+
+
+de entrega1 a master:
+**git push origin entrega1:master.**
+
+
+para descargar una rama:
+**git checkout --track origin/NOMBRERAMA**
+
+
+To delete a local branch
+**git branch -d the_local_branch**
+
+
+To remove a remote branch (if you know what you are doing!)
+**git push origin :the_remote_branch**
+
+traer los cambios de la rama testing a mi rama testing, sin moverme de la rama donde estoy
+**git fetch origin testing:testing**

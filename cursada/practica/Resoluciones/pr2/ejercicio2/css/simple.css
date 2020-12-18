@@ -1,0 +1,20 @@
+h1,h2{ /* Selector */
+	color: red; /* Declaración: contiene propiedad color y valor red. */
+	font-size: 16px; /* Declaración: contiene propiedad font-size y valor 16px; */
+	text-align: center; 
+}
+
+.objetivo{
+	color:gray;
+	font-style: italic;
+	text-align: center;
+}
+
+.ejercicio{
+	font-weight: bold;
+}
+
+p{
+	color: dimgray;
+	text-align: justify;
+}

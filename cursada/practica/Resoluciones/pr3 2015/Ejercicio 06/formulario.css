@@ -1,0 +1,50 @@
+body {
+	background-color: #DBDBFF;
+}
+
+h1 {
+	text-indent: 4%;
+	font-family: arial;
+	color: navy;
+}
+
+p {
+	text-indent: 4%;
+}
+
+fieldset {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 1.5%;
+	margin-bottom: 1.5%;
+}
+
+.campo {
+	margin: 0 auto;
+	margin-top: 1%;
+	width: 95%;
+}
+
+.campo label {
+	float: left;
+	width: 17%;
+}
+
+.campo input {
+	background-color: #F6F6E5;
+}
+
+.asterisco {
+	color: red
+}
+
+textarea {
+	resize:none;
+	background-color: #F6F6E5;
+}
+
+.boton {
+	margin-left: 4%;
+	float: left;
+}
+

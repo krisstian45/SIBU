@@ -1,0 +1,56 @@
+{% extends "ABM.twig" %}
+
+{% block content %}
+	<section class="principal">
+		<h2>Configuración</h2>
+		<div class="exito">{{ data.mensaje.exito }}</div>
+		<form class="formato" action="{{ path }}/index.php/?action=Configuracion&request=actualizarConfiguracion" method="POST">
+
+			<div class="error">{{ data.mensaje.error.titulo }}</div>
+			<label>Titulo:</label>
+			<input title="Ingrese un mínimo de 2 carácteres, máximo 50" pattern=".{2,50}" type="text" name="titulo" value="{{ data.configuracion.titulo }}" class="borde" required>
+
+			<div class="error">{{ data.mensaje.error.descripcion }}</div>
+			<label>Descripción:</label>
+			<input title="Ingrese un mínimo de 2 carácteres, máximo 255" pattern=".{2,255}" type="text" name="descripcion" value="{{ data.configuracion.descripcion }}" class="borde" required>
+
+			<div class="error">{{ data.mensaje.error.email }}</div>
+			<label>Email de contacto:</label>
+			<input title="Ejemplo user@mail.com" pattern=".{2,30}" type="text" name="email" value="{{ data.configuracion.email }}" class="borde" required>
+
+			<div class="error">{{ data.mensaje.error.elementos }}</div>
+			<label>Elementos por página:</label>
+			<input type="number" name="elementos" min="0" max="9999999" value="{{ data.configuracion.elementos }}" class="borde" required>
+
+			<div class="error">{{ data.mensaje.error.habilitado }}</div>
+			<label>Habilitado:</label>
+			<div class="centrado">
+				{% if(data.configuracion.habilitado == true) %}
+					<input type="radio" name="habilitado" value="1" checked="checked" required>
+					<label>Si</label>
+					<input type="radio" name="habilitado" value="0">
+					<label>No</label>
+				{% else %}
+					<input type="radio" name="habilitado" value="1">
+					<label>Si</label>
+					<input type="radio" name="habilitado" value="0" checked="checked" required>
+					<label>No</label>
+				{% endif %}
+			</div>
+
+			<div class="error">{{ data.mensaje.error.mensaje }}</div>
+			<label>Mensaje de sitio deshabilitado:</label>
+			<input title="Ingrese un mínimo de 2 carácteres, máximo 255" pattern=".{2,255}" type="text" name="mensaje" value="{{ data.configuracion.mensaje }}" class="borde" required>
+
+			<br />
+			<br />
+
+			<div>
+				<input type="submit" name="enviar" value="Enviar" class="enviar">
+			</div>
+
+		</form>
+		<br />
+		<a class="cancelar" href="{{ path }}/index.php/?action=Home&request=backend">Cancelar</a>
+	</section>
+{% endblock %}

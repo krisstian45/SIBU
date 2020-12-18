@@ -1,0 +1,15 @@
+{% extends "layout.twig" %}
+
+{% block nav %}
+
+		<li><a href="{{ path }}/index.php/?action=Home&request=backend">Volver</a></li>
+
+{% endblock %}
+
+{% block content %}
+    <section class="principal">
+    	<h2>Sección {{ data.seccion }} </h2>
+ 		<img src="{{ path }}/styles/images/notYet.jpg" alt="En construcción" style="width:304px;height:228px;">
+    </section>
+
+{% endblock %}

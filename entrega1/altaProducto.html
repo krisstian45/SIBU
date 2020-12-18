@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>SIBU Inform&aacute;tica</title>
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/altaProducto.css">
+    <link rel="icon" href="imagenes/fav.ico">
+</head>
+
+<body>
+    <header>
+        <h1 class="banner">SIBU Backend</h1>
+    </header>
+    <div class="main">
+        <nav class="nav">
+            <ul>
+                <li> <a href="frontend.html">
+                    Inicio
+                </a></li>
+                <li><a href="#">Men&uacute;&nbsp;del&nbsp;dia</a></li>
+                <li><a href="#">Informaci&oacute;n</a></li>
+                <li><a href="backend.html">Volver</a></li>
+            </ul>
+        </nav>
+        <div class="contenedor">
+            <section class="principal">
+                <div>
+                    <h2>Ingrese los datos del nuevo producto</h2>
+                    <div>En este formulario hay campos obligatorios <span class="asterisco">*</span></div>
+                </div>
+                <form class="formato" action="backend.html" method="post">
+                    <label for="nombre">Nombre <span class="asterisco">*</span></label>
+                    <input id="nombre" name="nombre" type="text" required="required" pattern="[A-Za-z]{2,20}" title="Ingrese un mínimo de 2 letras, máximo 20">
+                    <label for="marca">Marca<span class="asterisco">*</span></label>
+                    <input id="marca" name="marca" type="text" required="required" pattern="[A-Za-z]{2,20}" title="Ingrese un mínimo de 2 letras, máximo 20">
+                    <!--  </div> -->
+                    <label for="codigoBarra">Código de barra<span class="asterisco">*</span></label>
+                    <input id="codigoBarra" name="codigoBarra" type="text" required="required" pattern="[A-Za-z]{10,20}" title="Ingrese un mínimo de 10 caracteres, máximo 20">
+                    <label for="stock">Cantidad de stock</label>
+                    <input id="stock" name="stock" type="number" title="Ingrese un número de stock">
+                    <label for="stockMinimo">Cantidad mínima de stock<span class="asterisco">*</span></label>
+                    <input id="stockMinimo" name="stockMinimo" type="number" required="required" title="Ingrese un número mínimo de stock">
+                    <label>Categoría<span class="asterisco">*</span></label>
+                    <select name="tipo">
+                        <option value="volvo">Comida</option>
+                        <option value="saab">Golosina</option>
+                        <option value="vw">Cafeteria</option>
+                        <option value="audi" selected>Bebida</option>
+                    </select>
+                    <label for="proveedor">Proveedor<span class="asterisco">*</span></label>
+                    <input id="proveedor" name="proveedor" type="text" required="required" pattern="[A-Za-z]{2,20}" title="Ingrese un mínimo de 2 letras, máximo 20">
+                    <label for="precioUnidad">Precio por unidad<span class="asterisco">*</span></label>
+                    <input id="precioUnidad" name="precioUnidad" type="number" required="required" step="1" title="Ingrese un precio">
+                    <br>
+                    <input name="enviar" class="enviar" type="submit" value="Enviar">
+                </form>
+                <form id="cancelar" action="backend.html">
+                    <input name="cancelar" class="cancelar" type="submit" value="Cancelar">
+                    <!-- <button  class="button"  value="Cancelar">Cancelar</button>
+ -->
+                </form>
+            </section>
+            <aside>
+                <h2>Ultimos ingresos</h2>
+                <p>Helado
+                    <br> Gaseosa
+                    <br> </p>
+            </aside>
+        </div>
+    </div>
+    <footer class="container">
+        <h3>Sistema UNLP-Powered by Grupo46</h3>
+        <a href="https://jigsaw.w3.org/css-validator/check/referer">
+            <img class="validator" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="¡CSS Válido!" />
+            <br>
+            <p>Validado por W3C</p>
+        </a>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-image: url("../images/food-table.jpg");
+  background-repeat: no-repeat;
+}
+
+
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.liIcon{
+  margin: 1px;
+  float: left;
+  width: 12px;
+  height: 12px;
+}
+
+.btn-menu{
+  display: none;
+  padding: 20px;
+  background: #0d2c44;
+}
+@media screen and (max-width: 450px){
+
+
+.contenedor-menu{
+  width: 20%;
+  min-width: 300px;
+  margin:50px;
+  display: inline-block;
+
+}
+
+.contenedor-menu .menu{
+  width: 100%;
+
+}
+.contenedor-menu .menu div{
+  width: 100%;
+  display: block;
+}
+.contenedor-menu ul{
+  list-style: none;
+
+}
+
+.contenedor-menu .menu li a{
+  color: #494949;
+  display: block;
+  padding: 15px 20px;
+  background: #e9e9e9;
+}
+
+
+.contenedor-menu .menu li a:hover{
+  background:#1a95d5;
+  color: #fff;
+}
+
+.contenedor-menu .menu ul{
+  display: none;
+}
+.contenedor-menu .menu ul li a{
+  background: #424242;
+  color: #e9e9e9;
+}
+.contenedor-menu .menu .activado > a{
+  background: #1a95d5;
+  color: #fff;
+}
+
+  body{
+    padding-top:50px;
+  }
+.contenedor-menu{
+  margin: 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+.btn-menu{
+  display: block;
+}
+  .contenedor-menu .menu{
+    display: none;
+  }
+
+}
+

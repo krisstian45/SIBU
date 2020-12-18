@@ -1,0 +1,355 @@
+/* reset inicio */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+    content: '';
+    content: none;
+}
+
+
+/* No olvides definir estilos para focus */
+
+:focus {
+    outline: 0;
+}
+
+
+/* No olvides resaltar de alguna manera el texto insertado/borrado */
+
+ins {
+    text-decoration: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+
+/* En el código HTML es necesario añadir cellspacing="0" */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* reset fin esto es todo prueba*/
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+/* con esto de box sizing no se salen de sus cajas las cosas */
+
+body {
+    background: #E1D3D3;
+}
+
+h1 {
+    color: black;
+    margin: 0.25em auto;
+    text-align: center;
+}
+
+.banner {
+    font-family: Arial;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 7.5em;
+    color: #660B5C;
+}
+
+h2 {
+    margin: 0.5em;
+}
+
+header,
+footer,
+nav {
+    background-color: #7E27A3;
+    border-radius: 0.5em;
+    text-align: center;
+    margin: 0.5em auto;
+    max-width: 960px;
+    padding: 0.25em;
+}
+
+header {
+    background: #A6A6A6;
+    background-image: url("https://grupo46.proyecto2016.linti.unlp.edu.ar/entrega1/imagenes/banner.png");
+    height: 120px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.nav {
+    border-radius: 0.5em;
+    padding: 0;
+    overflow: auto;
+}
+
+
+/* lo sig. centra en la pagina grande todo el contenido  */
+
+.main {
+    border-radius: 0.5em;
+    text-align: center;
+    margin: 0.5em auto;
+    max-width: 960px;
+    padding: 0.25em;
+    background: #8C5CB5;
+}
+
+
+/* -------------------------------*/
+
+ul {
+    padding: 0.1em;
+    float: left;
+    list-style-type: none;
+}
+
+li {
+    border-radius: 0.5em;
+    background: #BF1F93;
+    display: inline-block;
+    padding: 0.5em;
+    /* pequeños estilos a los li */
+    border: 1px solid #556677;
+    color: #AABBCC !important;
+    margin: 0.25em;
+    /*     -------------*/
+}
+
+.contenedor {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 0;
+}
+
+.principal,
+aside {
+    /*     background: #EB0409;
+ */
+    text-align: center;
+    display: inline-block;
+    max-width: 960px;
+    padding: 0.5em;
+    width: 65%;
+    border-radius: 0.5em;
+}
+
+aside {
+    width: 30.3%;
+    vertical-align: top;
+    background: #614C64;
+}
+
+article {
+    background: #831A70;
+    border-radius: 0.5em;
+    min-height: 140px;
+    padding: 0.25em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.validator{
+    border:0;width:88px;height:31px
+}
+
+@media screen and (max-width: 800px) and (min-width: 400px) {
+    /* ------------- */
+    /*     .nav {
+        padding: 0;
+        margin: 0;
+
+    }
+    ul{
+        width: 100%;
+        margin: 0 auto;
+    }
+    li {
+        display: block;
+        padding: 0.25em;
+        margin: 0.1em auto;
+        border-style: solid;
+        }
+ */
+    /* --------------- */
+    .main {
+        border-radius: 0.5em;
+        text-align: center;
+        margin: 0.5em auto;
+        max-width: 960px;
+        padding: 0.25em;
+    }
+    .nav {
+        width: 30%;
+        margin: 0;
+        display: inline-block;
+        /* inline-block */
+        vertical-align: top;
+    }
+    ul {
+        padding: 0.5em;
+    }
+    li {
+        display: block;
+        width: 95%;
+        text-align: center;
+        padding-left: 0.1em;
+        padding-right: 0.1em;
+    }
+    .contenedor {
+        margin: 0;
+        width: 65%;
+        display: inline-block;
+    }
+    .principal {
+        display: block;
+        width: 95%;
+        margin-bottom: 0.5em;
+    }
+    aside {
+        display: block;
+        margin-top: 0.5em;
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 400px) and (min-width: 10px) {
+    .nav {
+        padding: 0;
+        margin: 0;
+    }
+    ul {
+        width: 100%;
+        margin: 0 auto;
+    }
+    li {
+        display: block;
+        padding: 0.25em;
+        margin: 0.1em auto;
+        border-style: solid;
+    }
+    .contenedor {
+        display: block;
+        width: 95%;
+        margin: 0 auto;
+    }
+    .principal {
+        width: 95%;
+        margin: 0;
+        margin-top: 1em;
+    }
+    article {
+        display: inline-block;
+    }
+    aside {
+        width: 95%;
+        margin-top: 0.5em;
+    }
+}

@@ -1,0 +1,73 @@
+.principal {
+    background-color: #9A104A;
+    /*#4CAF50;*/
+}
+
+h2 {
+    font-size: 1.5em;
+    padding: 0.5em;
+}
+
+p {
+    padding: 0.5em;
+}
+
+.form {
+    position: relative;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    border-radius: 0.5em;
+}
+
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.form button {
+    text-transform: uppercase;
+    outline: 0;
+    background: #9A104A;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    /*la manito inicio*/
+    cursor: pointer;
+    /*la manito fin*/
+}
+
+p a {
+    color: blue;
+}
+
+
+/* @media screen and (max-width: 800px)and(min-width: 400px) {
+    .main {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+    .principal {
+        width: 50%;
+        margin: 0.5em 25%;
+        padding: 0;
+    }
+    .input {
+        margin: 0 auto;
+        display: block;
+    }
+    .par {
+        display: inline;
+    }
+} */

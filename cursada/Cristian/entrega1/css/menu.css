@@ -1,0 +1,32 @@
+header {
+    border-style: solid;
+    text-align: center;
+}
+
+ul {
+    /* margin: 0.25em auto;
+	padding: 0.2em;
+	flex: 1; */
+}
+
+li {
+    list-style-type: none;
+    display: inline;
+    border-style: solid;
+    max-width: 9em;
+    padding: 0.25em;
+    border-collapse: collapse;
+}
+@media screen and (max-width: 700px) {
+    body {
+        background-color: lightgreen;
+
+    }
+    li {
+    	display:block;
+    	max-width: 9em;
+    	padding: 0.25em;
+    	border-collapse: collapse;
+    }
+}
+

@@ -1,0 +1,46 @@
+.listado {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    background-color: #3BBDB0;
+    font-size: 0.75em;
+
+}
+
+th,
+td {
+    margin: 0;
+    padding: 0;
+    border: solid 0.1px;
+}
+
+.title {
+    margin: 1em;
+    padding: 1em;
+    background-color: grey;
+}
+.hidden{
+    display: none;
+}
+.bord0{
+    border: 0px
+}
+.bord2{
+    font-weight: bold; border: 2px solid black;
+}
+
+.principal {
+    width: 100%;
+    padding: 0;
+    overflow-x: auto;
+
+}
+
+.enviar,
+.cancelar {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    margin: 0;
+}

@@ -1,0 +1,22 @@
+{% extends "layout.twig" %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/altaProducto.css">
+{% endblock %}
+
+{% block nav %}
+    <li><a href="{{ path }}/index.php/?action=Compra&request=index">Volver</a></li>
+{% endblock %}
+
+{% block content %}
+
+    <section class="principal">
+		<form class="formato" action="{{ path }}/index.php/?action=Compra&request=eliminarCompra&idCompra={{ data.id }}" method="POST">
+			<h1>Estas a punto de eliminar la compra con fecha: {{ data.fecha }}. Se restablecerá el stock de los productos vendidos. ¿Estas seguro?</h1>
+			<br />
+			<input name="eliminar" class="enviar" type="submit" value="Eliminar" style="width: 300px;">
+		</form>
+		  	<a class="cancelar" href="{{ path }}/index.php/?action=Compra&request=index" style="width: 300px;">Cancelar</a>
+	</section>
+
+{% endblock %}

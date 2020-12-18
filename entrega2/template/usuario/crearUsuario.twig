@@ -1,0 +1,8 @@
+{% extends "formularioCrearModificar.twig" %}
+                
+
+        {% block destino %}
+            <form action="{{ path }}/index.php/?action=Usuario&request=operar&operacion=crear" method="post">
+                    <h2>Ingrese los datos del nuevo Usuario</h2>
+                
+        {% endblock %}

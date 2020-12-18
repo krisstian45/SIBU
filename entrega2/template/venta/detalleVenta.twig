@@ -1,0 +1,63 @@
+{% extends "layout.twig" %}
+
+{% block head %}
+
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/altaProducto.css">
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/ventaProductos.css">
+
+{% endblock %}
+
+{% block nav %}
+
+    <li>
+        <a href="{{ path }}/index.php/?action=Venta&request=index">Volver</a>
+    </li>
+
+{% endblock %}
+
+{% block content %}
+
+    <section class="principal">
+        <h2 class="exito"> {{ data.mensaje }} </h2>
+        <h1>Detalle de la venta con fecha: {{ data.fecha }}. </h1>
+
+        {% if data.ventas is not empty %}
+            <h1>Total de productos en esta venta:</h1>
+            <table class="listado">
+                <tr class="categorias">
+                    <th class="title">id</th>
+                    <th class="title">Nombre</th>
+                    <th class="title">Codigo barra</th>
+                    <th class="title">Precio unitario</th>
+                    <th class="title">Cantidad</th>
+                </tr>
+                {% for venta in data.ventas %}
+                    <tr style="height: 50px">
+                        <form class="subtotal-item">
+                            <input name="id" value="{{ venta.id }}" type="hidden" readonly="true">
+                            <td>{{ venta.id }}</td>
+                            <td>{{ venta.nombre }}</td>
+                            <td>{{ venta.codigo_barra }}</td>
+                            <td>{{ venta.precio_venta_unitario }}</td>
+                            <td>{{ venta.cantidad }}</td>
+                        </form>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td class="title" style="border: 0px"></td>
+                    <td class="title" style="border: 0px"></td>
+                    <td class="title" style="border: 0px"></td>
+                    <td class="title" style="border: 0px"></td>
+                    <td class="title"></td>
+                </tr>
+            </table>
+
+            <br/>
+            <br/>
+
+        {% endif %}
+    </section>
+
+{% endblock %}
+
+

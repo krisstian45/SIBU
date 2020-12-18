@@ -1,0 +1,13 @@
+{% extends "backend.twig" %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/altaProducto.css">
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/listadoProductos.css">
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/paginador.css">
+{% endblock %}
+
+{% block inner_nav %}
+    <li><img class="liIcon" src="{{ path }}/styles/images/backend-icon.png" alt="inicio" >
+    	<a href="{{ path }}/index.php/?action=Backend&request=index">Volver</a>
+    </li>
+{% endblock %}

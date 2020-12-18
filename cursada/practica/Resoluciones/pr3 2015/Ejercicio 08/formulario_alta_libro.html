@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Formulario para la reserva</title>
+		<link rel="stylesheet" type="text/css" href="estilos.css">
+	</head>
+	<body>
+		<h1>Ingreso nuevo libro</h1>
+		<form method="post" action="procesar_alta_libro.php">
+			<fieldset>
+				<legend>Datos</legend>
+				<div class="campo">
+					<label>Titulo<span class="asterisco">*</span></label><input type="text" name="titulo" placeholder="Ingrese el t&iacute;tulo" required="required">
+					<label>Autor<span class="asterisco">*</span></label><input type="text" name="autor" placeholder="Ingrese el autor" required="required">
+					<label>Publicaci&oacute;n<span class="asterisco">*</span></label><input type="text" name="publicacion" placeholder="Ingrese la publicaci&oacute;n" required="required">
+					<label>Edici&oacute;n<span class="asterisco">*</span></label><input type="text" name="edicion" placeholder="Ingrese la edici&oacute;n" required="required">
+					<label>ISBN<span class="asterisco">*</span></label><input type="text" name="isbn" placeholder="Ingrese el ISBN" required="required">
+				</div>
+				
+			</fieldset>
+			<div class="boton">
+				<input type="submit" value="Ingresar Libro">
+			</div>
+			<div class="boton">
+				<input type="reset" value="Borrar Todo">
+			</div>
+		</form>
+	</body>
+</html>

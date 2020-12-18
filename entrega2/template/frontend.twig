@@ -1,0 +1,57 @@
+{% extends "layout.twig" %}
+
+{% block nav %}
+    <ul class=" menu  login">
+        {% if(session is defined) %}
+        <li> <img class="liIcon" src="{{ path }}/styles/images/backend-icon.png" alt="Backend" >
+            <a href="{{ path }}/index.php/?action=Backend&request=index">Volver a mi perfil</a></li>
+        {% else %}
+            <li> <img class="liIcon" src="{{ path }}/styles/images/login-icon.png" alt="Login" >
+                <a href="{{ path }}/index.php/?action=Sesion&request=login">Iniciar&#xa0;sesión</a></li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <section class="principal">
+        <h2>En el buffet hay comida, golosinas y cafe.</h2>
+        <article>
+            <h3>Datos de la configuración</h3>
+            <br />
+            Titulo: {{ data.titulo }}
+            <br />
+            Descripción: {{ data.descripcion }}
+            <br />
+            Email: {{ data.email }}
+        </article>
+        <article>
+            <h3>Menu del dia</h3>
+            <br />
+            <p>Lunes 19 de septiembre de 2016
+                <br>Medallones de merluza con arroz
+                <br>Ensalada integral
+                <br>Milanesa de carne con frita</p>
+        </article>
+        <article>
+            <h3>Menu del dia</h3>
+            <br />
+            <p>Viernes 16 de septiembre de 2016
+                <br>Medallones de merluza con arroz
+                <br>Ensalada integral
+                <br>Milanesa de carne con frita</p>
+        </article>
+        <article>
+            <h3>Menu del dia</h3>
+            <br />
+            <p>Jueves 15 de septiembre de 2016
+                <br>Medallones de merluza con arroz
+                <br>Ensalada integral
+                <br>Milanesa de carne con frita</p>
+        </article>
+    </section>
+        <aside>
+            <h2>Promos
+        </h2>
+            <p>Disfruta de las promos si sos socio de la Universidad click al sigueinte enlance y enterate como.</p>
+        </aside>
+{% endblock %}

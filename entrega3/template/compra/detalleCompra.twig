@@ -1,0 +1,56 @@
+{% extends "ABM.twig" %}
+
+{% block nav %}
+
+    <li>
+        <a href="{{ path }}/index.php/?action=Compra&request=index">Volver</a>
+    </li>
+
+{% endblock %}
+
+{% block content %}
+
+    <section class="principal">
+        <h2>Productos de la compra</h2>
+        <table id="listado" class="listado">
+            <tr class="categorias">
+                <th class="title">Nombre</th>
+                <th class="title">Marca</th>
+                <th class="title">Codigo de barra</th>
+                <th class="title">Stock</th>
+                <th class="title">Stock minimo</th>
+                <th class="title">Proveedor</th>
+                <th class="title">Precio unitario</th>
+                <th class="title">Descripcion</th>
+                <th class="title">Cantidad</th>
+                <th class="title">Categoria</th>
+            </tr>
+            {% for producto in data.listado %}
+                <tr>
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.marca }}</td>
+                    <td>{{ producto.codigo_barra}}</td>
+                    <td>{{ producto.stock }}</td>
+                    <td>{{ producto.stock_minimo }}</td>
+                    <td>{{ producto.proveedor }}</td>
+                    <td>{{ producto.precio_venta_unitario }}</td>
+                    <td>{{ producto.descripcion }}</td>
+                    <td>{{ producto.cantidad }}</td>
+                    <td>{{ producto.categoria_id }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <div id="black" class="margen">
+        </div>
+
+        <br />
+        <br />
+
+        <h2>Factura de la compra</h2>
+
+        <br />
+
+        <img src="{{ data.factura }}" title="Factura de la compra" alt="Factura de la compra" height="250"  width="250">
+    </section>
+
+{% endblock %}

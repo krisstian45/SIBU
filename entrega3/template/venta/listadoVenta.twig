@@ -1,0 +1,40 @@
+{% extends "ABM.twig" %}
+
+{% block content %}
+
+    <section class="principal">
+		<p class="error"> {{ data.mensaje.exito }} </p>
+		<br />
+    	<input class="enviar" type="button" onclick="location.href='{{ path }}/index.php/?action=Venta&request=vistaCrear';" value="Crear nueva venta" />
+        {% if data.listado is empty %}
+        	<h2>Aún no se han registrado ventas</h2>
+        {% else %}
+        	<h2>Listado de ventas realizadas</h2>
+	        <table id="listado" class="listado">
+	            <tr class="categorias">
+	                <th id="fecha">Fecha</th>
+	                <th id="cantVendida">Cantidad vendida</th>
+	                <th id="totalFacturado">Total facturado</th>
+	                <th></th>
+	            </tr>
+	            {% for venta in data.listado %}
+		            <tr>
+		                <td>{{ venta.fecha }}</td>
+		                <td>{{ venta.cantidad }}</td>
+		                <td>{{ venta.total }}</td>
+		                <td>
+		                	<a href="{{ path }}/index.php/?action=Venta&request=detalleVenta&fecha={{ venta.fecha }}"><img title="Ver" src="https://grupo46.proyecto2016.linti.unlp.edu.ar/entrega1/imagenes/ver.png" class="imagenesListado" alt="Ver"></a>
+
+							{#<a href="{{ path }}/index.php/?action=Venta&request=vistaModificar&fecha={{ venta.fecha }}"><img title="Editar" src="https://grupo46.proyecto2016.linti.unlp.edu.ar/entrega1/imagenes/editar.png" class="imagenesListado" alt="Editar"></a>#}
+
+		                    <a href="{{ path }}/index.php/?action=Venta&request=vistaBorrar&fecha={{ venta.fecha }}"><img title="Eliminar" src="https://grupo46.proyecto2016.linti.unlp.edu.ar/entrega1/imagenes/eliminar.png" class="imagenesListado" alt="Eliminar"></a>
+		                </td>
+		            </tr>
+	            {% endfor %}
+	        </table>
+	        <div id="black" class="margen">
+        	</div>
+        {% endif %}
+    </section>
+
+{% endblock %}

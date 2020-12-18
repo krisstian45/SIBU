@@ -1,0 +1,36 @@
+.listado {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid black;
+    margin: 0px;
+    overflow-x: auto;
+    background-color: #3BBDB0;
+    font-size: 0.75em;
+}
+
+th,
+td {
+    border: solid;
+    text-align: left;
+    padding: 8px;
+}
+
+.categorias {
+    background-color: grey;
+}
+
+.contenedor {
+    max-width: 960px;
+}
+
+.principal {
+    width: 100%;
+    padding: 0;
+    overflow-x: auto;
+}
+
+img {
+    height: 1.5em;
+    width: 1.5em;
+}

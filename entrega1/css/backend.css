@@ -1,0 +1,93 @@
+/*----------------implementacion de las cajas--------------------------*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /**esto es la barra*/
+}
+
+li a,
+.dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 0;
+    text-decoration: none;
+    /*enlaces del menu */
+}
+
+li a:hover,
+.dropdown:hover .dropbtn {
+    margin: 0 auto;
+    background: #BF1F93;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #7E27A3;
+    min-width: 1%;
+}
+
+.dropdown-content a {
+    /*enlaces de cascada*/
+    color: yellow;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: purple;
+}
+
+.dropdown:hover .dropdown-content {
+    /*pasando raton*/
+    display: block;
+}
+
+.padre {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+
+/*-------------------fin de las cajas-------------------------*/
+
+@media screen and (max-width: 800px) and (min-width: 400px) {
+    .nav {
+        display: inline;
+    }
+    .padre,
+    .right {
+        overflow: hidden;
+        margin-bottom: 1em;
+        width: 100%;
+        border-radius: 0.5em;
+    }
+    .contenedor {
+        display: inline-block;
+        width: 100%;
+    }
+    .principal {
+        width: 97%;
+        margin: 0 auto;
+    }
+    aside {
+        width: 97%;
+        margin: 0 auto;
+        margin-top: 0.5em;
+    }
+}
+
+@media screen and (max-width: 400px) {}

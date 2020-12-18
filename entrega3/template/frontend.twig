@@ -1,0 +1,50 @@
+{% extends "layout.twig" %}
+
+{% block nav %}
+        <!-- El tag ul esta en layout.twig -->
+        {% if(session is defined) %}
+        <li><img class="liIcon" src="{{ path }}/styles/images/backend-icon.png" alt="Backend">
+            <a href="{{ path }}/index.php/?action=Backend&request=index">Volver a mi perfil</a>
+        </li>
+        {% else %}
+            <li><img class="liIcon" src="{{ path }}/styles/images/login-icon.png" alt="Login">
+                <a href="{{ path }}/index.php/?action=Sesion&request=login">Iniciar&#xa0;sesión</a>
+            </li>
+            <li><img class="liIcon" src="{{ path }}/styles/images/login-icon.png" alt="Registrarse">
+                <a href="{{ path }}/index.php/?action=Sesion&request=registrarse">Registrarse</a>
+            </li>
+        {% endif %}
+{% endblock %}
+
+{% block content %}
+    <section class="principal">
+        <article>
+            <br />
+            Titulo: {{ data.config.titulo }}
+            <br />
+            Descripción: {{ data.config.descripcion }}
+            <br />
+            Email: {{ data.config.email }}
+        </article>
+        {% if not data.menu %}
+            <article><h3>Aún no hay menú. Disculpe las molestias.</h3></article>
+        {% else %}
+        <article>
+            <h3>Menu del dia {{ data.menu.0.fecha}}</h3>
+            <br />
+            {% for producto in data.menu %}
+                <p class="menuDia">{{ producto.nombre }}</p>
+            {% endfor %}
+        </article>
+        {% endif %}
+
+    </section>
+        <aside>
+            <br/>
+            <br/>
+
+            <h2>Subscribite a nuestro canal de telegram!</h2>
+            <p>Enterate del menú del día de hoy y mañana: </p>
+            <a style="color:blue" href="https://web.telegram.org/#/im?p=@BuffetGrupo46_bot">@BuffetGrupo46</a>
+        </aside>
+{% endblock %}

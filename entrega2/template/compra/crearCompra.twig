@@ -1,0 +1,147 @@
+{% extends "layout.twig" %}
+
+{% block head %}
+
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/altaProducto.css">
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/ventaProductos.css">
+    <script src="{{ path }}/styles/js/compra.js"></script>
+
+{% endblock %}
+
+{% block nav %}
+
+    <li>
+        <a href="{{ path }}/index.php/?action=Compra&request=index">Volver</a>
+    </li>
+
+{% endblock %}
+
+{% block content %}
+
+    <section class="principal">
+        {% if data.listado is empty %}
+            <h3>No hay productos para renovar stock</h3>
+        {% else %}
+            <h3>Listado de productos para renovar stock</h3>
+            <br />
+            <table class="listado">
+                <tr class="categorias">
+                    <th class="hidden"></th>
+                    <th class="title">Nombre</th>
+                    <th class="title">Marca</th>
+                    <th class="title">Codigo barra</th>
+                    <th class="title">Stock</th>
+                    <th class="title">Stock minimo</th>
+                    <th class="title">Precio unitario</th>
+                    <th class="title">Descripcion</th>
+                    <th class="title">Cantidad</th>
+                    <th class="title"></th>
+                </tr>
+                {% for producto in data.listado %}
+                    <tr>
+                        <form class="compra-item">
+                            <td class="hidden"><input type="hidden" name="id" value="{{ producto[0] }}"></td>
+                            <td>{{ producto[1] }}</td>
+                            <td>{{ producto.marca }}</td>
+                            <td>{{ producto.codigo_barra}}</td>
+                            <td>{{ producto.stock }}</td>
+                            <td>{{ producto.stock_minimo }}</td>
+                            <td>{{ producto.precio_venta_unitario }}</td>
+                            <td>{{ producto.descripcion }}</td>
+                            <td>
+                                <input name="cantidad" type="number" value="0" min="0" max="50" title="Ingrese cantidad del producto a vender">
+                            </td>
+                            {% if producto[0] not in data.compras|keys %}
+                                <td><input class="enviar" type="submit" value="Agregar a la compra"> </td>
+                            {% else %}
+                                <td> Producto agregado a la compra </td>
+                            {% endif %}
+                        </form>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <br/>
+            <br/>
+
+            {% if data.compras is not empty %}
+                <h2>Total de productos a comprar:</h2>
+                    <table class="listado">
+                        <tr class="categorias">
+                            <th class="title">Nombre</th>
+                            <th class="title">Marca</th>
+                            <th class="title">Codigo barra</th>
+                            <th class="title">Precio unitario</th>
+                            <th class="title">Cantidad</th>
+                            <th class="title">Subtotal</th>
+                            <th class="title"></th>
+                            <th class="hidden"></th>
+                        </tr>
+                        {% for compra in data.compras %}
+                            <tr>
+                                <form class="subtotal-item">
+                                    <td class="hidden"><input name="id" value="{{ compra.id }}" type="hidden" {# readonly="true" #}></td>
+                                    <td>{{ compra.nombre }}</td>
+                                    <td>{{ compra.marca }}</td>
+                                    <td>{{ compra.codigo_barra }}</td>
+                                    <td>{{ compra.precio_venta_unitario }}</td>
+                                    <td>{{ compra.cantidad }}</td>
+                                    <td>{{ compra.subtotal }}</td>
+                                    <td><input class="cancelar" type="submit" value="Quitar"></td>
+                                </form>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td class="title  bord0" ></td>
+                            <td class="title  bord0" ></td>
+                            <td class="title  bord0" ></td>
+                            <td class="title  bord0" ></td>
+                            <td class="title  bord2" >Total</td>
+                            <td class="title  bord2" >{{ data.total }}</td>
+                            <td class="title"></td>
+                            <td class="hidden"></td>
+                        </tr>
+                    </table>
+
+                <br/>
+                <br/>
+
+                <form class="formato" action="{{ path }}/index.php/?action=Compra&request=generarCompra" method="POST"  enctype="multipart/form-data">
+
+                    <p class="error"> {{ data.errores.general }} </p>
+
+                    <label  for="proveedor">Proveedor </label>
+                    <input class="borde" id="proveedor" name="proveedor" type="text" required="required" pattern="[A-Za-z ]{2,20}" maxlength="20" title="Ingrese un mínimo de 2 letras, máximo 20">
+
+                    <label for="cuit">CUIT Proveedor</label>
+                    <input class="borde" id="cuit" name="cuit" type="text" required="required" pattern="[1-9]{11}" maxlength="11" title="Ingrese los 11 digitos del numero de CUIT">
+
+                    <br/>
+
+                    <label>Ingrese la factura escaneada</label>
+
+                    <br />
+
+                    <input type="file" name="factura" accept="image/*">
+
+                    <br/>
+                    <br/>
+
+                    <input class="enviar" type="submit" value="Generar compra" style="width: 300px;">
+
+                </form>
+
+                <br/>
+                <br/>
+
+                <!-- TODO: Ver el boton cancelar que esta funcionando mal -->
+
+                <a class="cancelar" href="{{ path }}/index.php/?action=Compra&request=cancelar" style="width: 300px;">Cancelar</a>
+
+            {% endif %}
+
+        {% endif %}
+
+    </section>
+
+{% endblock %}

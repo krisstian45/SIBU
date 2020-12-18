@@ -1,0 +1,22 @@
+{% extends "listadoUsuario.twig" %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/altaProducto.css">
+{% endblock %}
+
+	{% block nav %}
+                <li><a href="{{ path }}/index.php/?action=Usuario&request=index">Volver</a></li>
+	{% endblock %}
+
+{% block content %}
+
+
+    <section class="principal">
+			<h2>Estas a punto de eliminar al usuario {{ data.datosUsuario.usuario }}. ¿Estas seguro?</h2>
+		<form class="formato" action="{{ path }}/index.php/?action=Usuario&request=operar&operacion=borrar" method="post">
+			<input type="hidden" name="usuario" id="usuario" value="{{ data.datosUsuario.usuario }}" >
+			<input name="borrar" class="enviar" type="submit" value="Borrar">
+		</form>
+	</section>
+
+
+{% endblock %}

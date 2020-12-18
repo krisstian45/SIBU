@@ -1,0 +1,63 @@
+{% extends "ABM.twig" %}
+{% block head %}
+		    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/listadoProductos.css">
+		    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/paginador.css">
+
+			<script src="{{ path }}/styles/js/newMenu.js"></script>
+{% endblock %}
+{% block content %}
+
+<section class="principal">
+	<input type="hidden" class="fechaDeHoy" name="fecha" value="{{data.fecha}}">
+	<h2>Listado de productos</h2>
+        {% if data is empty %}
+            <p>No hay productos para ser listados</p>
+        {% else %}
+            <table id="listado" class="listado">
+	            <thead>
+	                <tr class="categorias">
+	                    <th id="id">id</th>
+	                    <th id="nombreProducto">Nombre</th>
+	                    <th id="stockProducto">Stock </th>
+	                    <th id="stockMinProducto">Stock Minimo</th>
+	                    <th id="proveedorProducto">Proveedor</th>
+	                    <th id="precioUniProducto">Precio unitario</th>
+	                    <th id="descripcionProducto">Descripcion</th>
+	                    <th id="categoriaProducto">Categoría</th>
+	                    <th id="operacionesProducto">Operaciones</th>
+	                    <th>Producto en menu</th>
+	                </tr>
+	            </thead>
+                <tbody>
+                {% for producto in data.productos %}
+	                <tr class="prod" >
+	                    <td  class="id">{{ producto.id }}</td>
+	                    <td>{{ producto.nombre }}</td>
+	                    <td>{{ producto.stock }}</td>
+	                    <td>{{ producto.stock_minimo }}</td>
+	                    <td>{{ producto.proveedor }}</td>
+	                    <td>{{ producto.precio_venta_unitario }}</td>
+	                    <td>{{ producto.descripcion }}</td>
+	                    <td>{{ producto.categoria_id }}</td>
+	                    <td class=" caja">
+	                    	{% if producto.menu is not empty %}
+	                		<a ><img title="add" id="{{ producto.id }}" src="https://grupo46.proyecto2016.linti.unlp.edu.ar/entrega1/imagenes/eliminar.png" class="imagenesListado add  " alt="Add"></a>
+							{% else %}
+							<a ><img title="add" id="{{ producto.id }}" src="https://grupo46.proyecto2016.linti.unlp.edu.ar/entrega1/imagenes/agregar.png" class="imagenesListado add  " alt="Add"></a>
+	               			{% endif %}
+                        <span></span>
+	                    </td>
+	                    {% if producto.menu is not empty %}
+	                    <td class="inMenu inCart">{{ producto.menu }}</td>
+	               		{% endif %}
+	                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div id="black" class="margen"></div>
+            <br><br><br>
+
+        {% endif %}
+</section>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+body {
+	background-color: #DBDBFF;
+}
+
+h1 {
+   text-indent: 4%;
+   color: navy;
+   font-size: 1.5em;
+}
+
+a {
+   text-decoration: none;
+}
+
+p {
+   font-weight: bold;
+   font-size: 1em;
+   font-family: arial;
+   text-indent: 4%;
+}
+
+form {
+   padding-top: 2%; 
+   margin-top: 2%;
+}
+
+.campo {
+	width: 25%; 
+	margin: 0 auto; 
+ 	margin-top: 1%;
+}
+
+.campo label {
+   width: 60%; 
+   float: left; 
+   font-size: 1.2em; 
+   font-weight: bold; 
+   margin-top: 2%; 
+   margin-bottom: 2%; 
+}
+
+.campo input  {
+   width: 60%;
+   background-color: #F6F6E5;
+}
+
+#boton {
+   margin-left: 4%;
+   float: left;
+}
+
+#boton_login {
+   margin: 2% 0% 3% 48%;
+}

@@ -1,0 +1,30 @@
+.centrado{
+    display: block;
+    
+}
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+    }
+    td,
+    th {
+        border: 1px solid #000000;
+        text-align: center;
+        padding: 8px;
+    }
+    .trTitle {
+        font-weight: bold;
+    }
+    .thUp {
+        font-weight: normal;
+        vertical-align: top;
+    }
+    #arg {
+        height: 56px;
+        width: 96px;
+    }
+    #titulo {
+        text-align: center;
+    }
+

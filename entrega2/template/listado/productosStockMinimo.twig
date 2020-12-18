@@ -1,0 +1,52 @@
+{% extends "ABM.twig" %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/altaProducto.css">
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/listadoProductos.css">
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/paginador.css">
+{% endblock %}
+
+{% block content %}
+
+    <section class="principal">
+        <p class="error"> {{ data.mensaje }} </p>
+        <h2>Listado de productos con stock minimo</h2>
+        {% if data.listado is empty %}
+            <p>No hay productos para ser listados</p>
+        {% else %}
+            <table id="listado" class="listado" >
+                <tr class="categorias">
+                    <th id="idProducto">id</th>
+                    <th id="nombreProducto">Nombre</th>
+                    <th id="marcaProducto">Marca</th>
+                    <th id="codigoBarraProducto">Codigo barra</th>
+                    <th id="stockProducto">Stock </th>
+                    <th id="stockMinProducto">Stock Minimo</th>
+                    <th id="fechaAltaProducto">Fecha alta</th>
+                    <th id="proveedorProducto">Proveedor</th>
+                    <th id="precioUniProducto">Precio unitario</th>
+                    <th id="descripcionProducto">Descripcion</th>
+                    <th id="categoriaProducto">Categoría</th>
+                </tr>
+                {% for producto in data.listado %}
+                    <tr>
+                        <td>{{ producto.id }}</td>
+                        <td>{{ producto.nombre }}</td>
+                        <td>{{ producto.marca }}</td>
+                        <td>{{ producto.codigo_barra}}</td>
+                        <td>{{ producto.stock }}</td>
+                        <td>{{ producto.stock_minimo }}</td>
+                        <td>{{ producto.fecha_alta }}</td>
+                        <td>{{ producto.proveedor }}</td>
+                        <td>{{ producto.precio_venta_unitario }}</td>
+                        <td>{{ producto.descripcion }}</td>
+                        <td>{{ producto.nombre }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <div id="black" class="margen">
+            </div>
+        {% endif %}
+    </section>
+
+{% endblock %}

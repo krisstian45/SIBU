@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>SIBU Inform&aacute;tica</title>
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/backend.css">
+    <link rel="icon" href="imagenes/fav.ico">
+</head>
+
+<body>
+    <header>
+        <h1 class="banner">SIBU Backend</h1>
+    </header>
+    <div class="main">
+        <nav class="nav">
+            <ul class="padre">
+                <li><a href="frontend.html">Inicio</a></li>
+                <!--empiezan las cajas con sub-menu -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Operaciones</a>
+                    <div class="dropdown-content">
+                        <!-- -->
+                        <a href="altaProducto.html">Productos</a>
+                        <a href="#">Gastos</a>
+                        <a href="#">Ventas</a>
+                        <a href="#">Men&uacute; buffet</a>
+                        <a href="#">Usuarios </a>
+                        <a href="#">Pedidos Online</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Listado</a>
+                    <div class="dropdown-content">
+                        <a href="listadoProductos.html">Productos</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Balances</a>
+                    <div class="dropdown-content">
+                        <a href="#">Gastos entre dos fechas</a>
+                        <a href="#">Ingresos entre dos fechas</a>
+                        <a href="#"> Productos faltantes</a>
+                        <a href="#"> Productos con stock minimo</a>
+                    </div>
+                    <!--finaizan las cajas con sub menu-->
+                </li>
+                <li><a href="#">Configuraci&oacute;n</a></li>
+            </ul>
+            <ul class="right">
+                <li>Bienvenido, Admin</li>
+                <li><a href="frontend.html">Cerrar sesi&oacute;n</a></li>
+            </ul>
+        </nav>
+        <div class="contenedor">
+            <section class="principal">
+                <h2>En el buffet hay comida, golosinas y caf&eacute;</h2>
+                <article>
+                    <h3>Men&uacute; del dia</h3>
+                    <p>Lunes 19 de septiembre de 2016
+                        <br>.Medallones de merluza con arrroz
+                        <br>.Ensalada integral
+                        <br>.Milanesa de carne con frita</p>
+                </article>
+                <article>
+                    <h3>Men&uacute; del dia</h3>
+                    <p>Viernes 16 de septiembre de 2016
+                        <br>.Medallones de merluza con arrroz
+                        <br>.Ensalada integral
+                        <br>.Milanesa de carne con frita</p>
+                </article>
+            </section>
+            <aside>
+                <h3>Ultimos movimientos</h3>
+                <br> Ingreso de mercader&iacute;a dia 19
+                <br>
+                <br>
+                <a href="#">Mas detalles...</a>
+            </aside>
+        </div>
+    </div>
+    <footer class="container">
+        <h3>Sistema UNLP-Powered by Grupo46</h3>
+        <a href="https://jigsaw.w3.org/css-validator/check/referer">
+            <img class="validator" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="¡CSS Válido!" />
+            <br>
+            <p>Validado por W3C</p>
+        </a>
+    </footer>
+</body>
+
+</html>

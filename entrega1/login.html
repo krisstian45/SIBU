@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>SIBU Inform&aacute;tica</title>
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="icon" href="imagenes/fav.ico">
+</head>
+
+<body>
+    <header>
+        <h1 class="banner">Sistema de Buffet</h1>
+    </header>
+    <div class="main">
+        <nav class="nav">
+            <ul>
+                <li><a href="frontend.html">
+                    Inicio
+                </a></li>
+            </ul>
+        </nav>
+        <div class="contenedor">
+            <section class="principal">
+                <h2>Iniciar sesi&oacute;n</h2>
+                <div class="login-page">
+                    <div class="form">
+                        <form class="login-form" action="backend.html" method="post">
+                            <input type="text" placeholder="nombre de usuario" class="input" name="username" pattern=".{2,20}" required="required" title="mínimo 2 carácteres, máximo 20" id="username" />
+                            <input type="password" placeholder="contraseña" class="input" name="password" pattern=".{6,30}" required="required" title="mínimo 6 carácteres, máximo 30" id="password" />
+                            <button>Ingresar</button>
+                            <p class="message"><a href="#">Olvidé mi cuenta</a></p>
+                            <p class="message"><a href="#">Registrarse</a></p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <footer class="container">
+        <h3>Sistema UNLP-Powered by Grupo46</h3>
+        <a href="https://jigsaw.w3.org/css-validator/check/referer">
+            <img class="validator" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="¡CSS Válido!" />
+            <br>
+            <p>Validado por W3C</p>
+        </a>
+    </footer>
+</body>
+
+</html>

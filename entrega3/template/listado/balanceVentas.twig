@@ -1,0 +1,24 @@
+{% extends "ABM.twig" %}
+
+{% block content %}
+
+    <section class="principal">
+        <p class="error">{{ data.mensaje }}</p>
+        <br />
+        <h1>Balance de ventas de cada producto</h1>
+        <br />
+        <h3>Ingrese un rango de fechas</h3>
+        <br />
+        <form action="{{ path }}/index.php/?action=Listado&request=calcularBalanceVentas" method="POST">
+            <p>
+                <input name="fechaInicio" type="text" required="required" class="datepicker" placeholder="Fecha inicio" readonly="readonly" size="12">
+            </p>
+            <p>
+                <input name="fechaFin" type="text" required="required" class="datepicker" placeholder="Fecha fin" readonly="readonly" size="12">
+            </p>
+            <br />
+            <input class="enviar" type="submit" value="Calcular ventas">
+        </form>
+    </section>
+
+{% endblock %}

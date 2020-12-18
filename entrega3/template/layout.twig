@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+{% include 'head.twig' %}
+{% block head %}
+{% endblock %}
+
+</head>
+
+<body>
+    <header class="container">
+        {% block header %}
+            <h1 class="banner">Sistema de Buffet</h1>
+        {% endblock %}
+    </header>
+
+    <nav class=" wrapper">
+    <div class="contenedor-menu">
+        <a href="#" class="btn-menu">Menu</a>
+        <ul class="menu">
+        {% block nav %}
+
+        {% endblock %}
+        </ul>
+    </div>
+    </nav>
+
+    <div class="main container">
+        <div class="contenedor">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+    <footer class="container">
+        {% include 'footer.twig' %}
+    </footer>
+
+    <!-- Configuracion de la paginacion -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#black').smartpaginator({ totalrecords: {{ data.listado|length }}, recordsperpage: {{ data.configuracion.elementos }}, datacontainer: 'listado', dataelement: 'tr', length: 1, initval: 0, next: 'Siguiente', prev: 'Anterior', first: 'Primero', last: 'Último', theme: 'black', controlsalways: true });
+        });
+    </script>
+
+    <script type="text/javascript">
+        location.reload();
+        return 0;
+    </script>
+
+</body>
+
+</html>

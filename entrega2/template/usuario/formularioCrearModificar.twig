@@ -1,0 +1,123 @@
+{% extends "layout.twig" %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/altaUsuario.css">
+{% endblock %}
+
+{% block nav %}
+    <li><a href="{{ path }}/index.php/?action=Usuario&request=index">Volver</a></li>
+{% endblock %}
+
+{% block content %}
+
+
+
+    <section class="principal">
+                <p class="error"> {{ data.mensaje }} </p>
+
+<div id="envelope">
+                <p class="error">{{ data.general }}</p>
+
+                {% block destino %}
+                {% endblock %}
+
+                    <p class="error">{{ data.datosUsuario.errores.usuario }}</p>
+                    <label for="usuario">Nombre Usuario</label>
+                    <input id="usuario" name="usuario" type="text" required="required" pattern="[A-Za-z0-9_]{5,10}$" maxlength="10" value="{{ data.datosUsuario.usuario }}" title="Ingrese un mínimo de 5 letras y/o números, máximo 10" autofocus>
+
+                    <p class="error">{{ data.errores.clave }}</p>
+                    <label for="clave">Contraseña</label>
+                    <input id="clave" name="clave" class="clave1" type="password" required="required" pattern="(?=.*\d)(?=.*[A-Z]).{5,15}" maxlength="15" title="Ingrese al menos 8 caracteres, incluyendo mínimamente un número y una mayúscula" onChange="checkPasswordMatch();" >
+
+                    <label for="clave2">Repetir contraseña</label>
+                    <input id="clave2" type="password" required="required" pattern="(?=.*\d)(?=.*[A-Z]).{5,15}" maxlength="15" title="Ingrese al menos 8 caracteres, incluyendo mínimamente un número y una mayúscula"  onChange="checkPasswordMatch();">
+                    <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
+                    
+                {% if data.sesion is defined %} {# esto es para el registrar#}
+                    <p class="error">{{ data.datosUsuario.errores.rol }}</p>
+                    <label for="rol">Rol</label>
+                    <select name="rol" id="rol" >
+                        {% if(data.datosUsuario.rol == 'consulta') %}
+                            <option value="online" selected="selected">Usuario Online</option>
+                            <option value="gestion">Gestion</option>
+                            <option value="administrador">Administrador</option>
+                        {% elseif(data.datosUsuario.rol == 'gestion') %}
+                            <option value="online">Usuario Online</option>
+                            <option value="gestion" selected="selected">Gestion</option>
+                            <option value="administrador">Administrador</option>
+                        {% else %}
+                            <option value="online">Usuario Online</option>
+                            <option value="gestion">Gestion</option>
+                            <option value="administrador" selected="selected">Administrador</option>
+                        {% endif %}
+                    </select>
+
+                    <p class="error">{{ data.datosUsuario.errores.habilitado }}</p>
+                    <label for="radio">Habilitado</label><br/>
+                    <input id="radio1" type='radio' name='habilitado' value='habilitado' checked/>Si <br/> <br/>
+                    <input id="radio" type='radio' name='habilitado' value='deshabilitado' />No 
+                {% endif %}
+                    <p class="error">{{ data.datosUsuario.errores.nombre }}</p>
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" name="nombre" type="text" required="required" pattern="[A-Za-z\s]{2,30}" value="{{ data.datosUsuario.nombre }}" title="Ingrese un mínimo de 2 letras, máximo 30" >
+
+                    <p class="error">{{ data.datosUsuario.errores.apellido }}</p>
+                    <label for="apellido">Apellido</label>
+                    <input id="apellido" name="apellido" type="text" required="required" pattern="[A-Za-z]{2,20}" maxlength="20" value="{{ data.datosUsuario.apellido }}" title="Ingrese un mínimo de 2 letras, máximo 20">
+
+                    <p class="error">{{ data.datosUsuario.errores.email }}</p>
+                    <label for="email">Email:</label>
+                    <input id="email" name="email"  type="email" required="required" value="{{ data.datosUsuario.email }}" title="Ingrese email válido">
+
+                    <p class="error">{{ data.datosUsuario.errores.tipoDocumento }}</p>
+                    <label for="tipoDocumento">Tipo documento:</label>
+                    <select id="tipoDocumento" name="tipoDocumento">
+                            <option value="DNI">DNI</option>
+                            <option value="CI" selected="selected">Cedula de identidad</option>
+                            <option value="LE">Libreta de enrolamiento</option>
+                            <option value="LC">Libreta civica</option>
+                    </select>
+
+                    <p class="error">{{ data.datosUsuario.errores.numeroDocumento }}</p>
+                    <label>Número de documento:</label>
+                    <input id="numeroDocumento" name="numeroDocumento" type="number" required="required" min="10000000" max="99999999" title="Ingrese un número de documento válido" value="{{ data.datosUsuario.numeroDocumento }}">
+
+                    <p class="error">{{ data.datosUsuario.errores.telefono }}</p>
+                    <label for="telefono">Teléfono:</label>
+                    <input id="telefono" name="telefono" value="{{ data.datosUsuario.telefono }}" required="required" type="text" pattern=".{6,20}" title="Ingrese un mínimo de 6 carácteres, máximo 20">
+
+                    <p class="error">{{ data.datosUsuario.errores.ubicacion }}</p>
+                    <label for="ubicacion_id">Oficina o departamento</label>
+                    <select name="ubicacion_id" id="ubicacion_id">
+                        {% for ubicacion in data.listado %}
+                            <option value="{{ ubicacion.id }}">{{ ubicacion.nombre }}</option>
+                        {% endfor %}
+
+                    </select>
+
+
+                    <br/>
+                    <br/>
+                    <br/>
+                    <input class="enviar" type="submit" value="Enviar">
+                </form>
+                <a class="cancelar" href="{{ path }}/index.php/?action=Usuario&request=index">Cancelar</a>
+</div>
+
+    </section>
+
+<script type="text/javascript">
+function checkPasswordMatch() {
+    var password = $("#clave").val();
+    var confirmPassword = $("#clave2").val();
+
+    if (password != confirmPassword)
+        $("#divCheckPasswordMatch").html("Las contraseñas deben coincidir");
+    else
+        $("#divCheckPasswordMatch").html("Las contraseñas coinciden.");
+}
+
+$(document).ready(function () {
+   $("#txtConfirmPassword").keyup(checkPasswordMatch);
+});
+</script>
+{% endblock %}

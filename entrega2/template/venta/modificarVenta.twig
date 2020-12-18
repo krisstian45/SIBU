@@ -1,0 +1,153 @@
+{% extends "layout.twig" %}
+
+{% block head %}
+
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/altaProducto.css">
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/ventaProductos.css">
+
+{% endblock %}
+
+{% block nav %}
+
+    <li>
+        <a href="{{ path }}/index.php/?action=Venta&request=index">Volver</a>
+    </li>
+
+{% endblock %}
+
+{% block content %}
+
+    <section class="principal">
+        <h2 class="exito"> {{ data.mensaje }} </h2>
+        <h1>Modificar el detalle de la venta con fecha: {{ data.fecha }}. </h1>    
+
+        <table class="listado">
+            <tr class="categorias">
+                <th class="title">Nombre</th>
+                <th class="title">Marca</th>
+                <th class="title">Stock</th>
+                <th class="title">Codigo de barra</th>
+                <th class="title">Precio unitario</th>
+                <th class="title">Descripcion</th>
+                <th class="title">Cantidad</th>
+                <th class="title"></th>
+            </tr>
+            {% for producto in data.listado %}
+            <tr>
+                <form class="venta-item">
+                    <input type="hidden" name="id" value="{{ producto[0] }}">
+                    <td>{{ producto[1] }}</td>
+                    <td>{{ producto.marca }}</td>
+                    <td>{{ producto.stock }}</td>
+                    <td>{{ producto.codigo_barra}}</td>
+                    <td>{{ producto.precio_venta_unitario }}</td>
+                    <td>{{ producto.descripcion }}</td>
+                    <td>
+                        <input name="cantidad" type="number" value="0" min="0" max="50" title="Ingrese la cantidad del producto a vender">
+                    </td>
+                    {% if producto.stock > 0 %} {# Esto es para asegurarnos de mostrar el boton "Agregar a la venta" #}
+                        {% if producto[0] not in data.ventas|keys %}
+                            <td>
+                                <input class="enviar" type="submit" value="Agregar a la venta">
+                            </td>
+                        {% else %}
+                            <td>Producto agregado a la venta</td>
+                        {% endif %}
+                    {% else %}
+                        <td>NO HAY STOCK</td>
+                    {% endif %}
+                </form>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br/>
+        <br/>
+
+        {% if data.ventas is not empty %}
+            <h1>Total de productos en esta venta:</h1>
+            <table class="listado">
+                <tr class="categorias">
+                    <th class="title">id</th>
+                    <th class="title">Nombre</th>
+                    <th class="title">Codigo barra</th>
+                    <th class="title">Precio unitario</th>
+                    <th class="title">Cantidad</th>
+                    <th class="title">Subtotal</th>
+                    <th class="title"></th>
+                </tr>
+                {% for venta in data.ventas %}
+                    <tr>
+                        <form class="subtotal-item">
+                            <input name="id" value="{{ venta.id }}" type="hidden" readonly="true">
+                            <td>{{ venta.id }}</td>
+                            <td>{{ venta.nombre }}</td>
+                            <td>{{ venta.codigo_barra }}</td>
+                            <td>{{ venta.precio_venta_unitario }}</td>
+                            <td>{{ venta.cantidad }}</td>
+                            <td>
+                                <input class="cancelar" type="submit" value="Quitar">
+                            </td>
+                        </form>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td class="title" style="border: 0px"></td>
+                    <td class="title" style="border: 0px"></td>
+                    <td class="title" style="border: 0px"></td>
+                    <td class="title" style="border: 0px"></td>
+                    <td class="title"></td>
+                </tr>
+            </table>
+
+            <br/>
+            <br/>
+
+            <form action="{{ path }}/index.php/?action=Venta&request=modificarVenta" method="POST">
+                <input style=" width: 200px;" class="enviar" type="submit" value="Generar venta">
+            </form>
+
+            <br/>
+            <a style=" width: 200px;" class="cancelar" href="{{ path }}/index.php/?action=Venta&request=cancelar">Cancelar</a>
+
+        {% endif %}
+    </section>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+  if (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+      $path= "http://localhost/grupo46/entrega2";
+  else
+      $path= "https://grupo46.proyecto2016.linti.unlp.edu.ar/entrega2";
+
+    $(".venta-item").submit(function(e){
+      var form_data = $(this).serialize();
+      $.ajax({ // Hacemos el request de ajax
+        url: $path + "/index.php/?action=Venta&request=agregarAVenta",
+        type: "POST",
+        data: form_data
+      }).done(function(data){ // on Ajax success
+        window.location = $path + "/index.php/?action=Venta&request=vistaModificar&fecha={{data.fecha}}";
+      })
+      e.preventDefault();
+    });
+
+    $(".subtotal-item").submit(function(e){
+      var form_data = $(this).serialize();
+      $.ajax({ // make ajax request to cart_process.php
+        url: $path + "/index.php/?action=Venta&request=quitarDeVenta",
+        type: "POST",
+        data: form_data
+      }).done(function(data){ // on Ajax success
+        window.location = $path + "/index.php/?action=Venta&request=vistaModificar&fecha={{data.fecha}}";
+      })
+      e.preventDefault();
+    });
+
+});
+
+</script>
+
+{% endblock %}
+
+

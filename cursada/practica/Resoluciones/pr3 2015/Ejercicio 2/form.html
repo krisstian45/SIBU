@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulario ejercicio 2</title>
+	<meta http­-equiv="content­type" content="text/html;charset=utf­-8" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+	<body>
+	<h2>Reserva de pasajes.</h2>
+		<form  method="post" action="validar.php" >
+			<div class="box">
+				<h1><span>&nbsp Datos personales &nbsp</span></h1>
+				<div class="campo">
+					<label for="nombre">Nombre</label>
+					<input id="nombre" name="nombre" placeholder="Ingrese su nombre"  type="text" required="required" pattern=".{2,20}" title="Ingrese un mínimo de 2 letras, máximo 20">
+				</div>
+				<div class="campo">
+					<label for="apellido">Apellido</label>
+					<input id="apellido" name="apellido" placeholder="Ingrese su nombre" type="text" required="required" pattern=".{2,20}" title="Ingrese un mínimo de 2 letras, máximo 20">
+				</div>
+				<div class="campo">
+					<label for="mail">Mail</label>
+					<input id="mail" name="mail" placeholder="ejemplo@dominio.com"  type="text" required="required" pattern=".{3,30}" title="Ingrese un mínimo de 3 carácteres, máximo 30">
+				</div> 	 	
+				<div class="campo">
+					<label for="telefono">Tel&eacutefono</label>
+					<input id="telefono" name="telefono" placeholder="Ej. (221) 467-0000" type="text" maxlength="10" required="required" title="Ingrese un telefono valido.">
+				</div> 	 	
+				<div class="campo">
+					<label for="nacimiento">Fecha de Nacimiento</label>
+					<input id="nacimiento" name="nacimiento" value="dd/mm/aaaa" type="date" maxlength="10" required="required" title="Ingrese una fecha valida">
+				</div> 	 	
+				<div class="campo">
+					<label for="documento">Nro de Documento</label> 
+					<select>
+					  <option value="dni">DNI</option>
+					  <option value="ci">CI</option>
+					  <option value="lc">LC</option>
+					  <option value="ld">LD</option>
+					</select>
+					<input id="documento" name="documento" placeholder="Ingrese su DNI"  type="text" required="required" title="Ingrese un nro valido">
+				</div> 	 	
+				<!--Aca va el otro div para Datos reserva-->
+			</div>
+			<br />
+			<div class="box">
+				<h1><span>&nbsp Datos de la reserva &nbsp</span></h1>
+				<div class="campo">
+					<label for="fechareserva">Fecha de Reserva</label>
+					<input id="fechareserva" name="fechareserva" value="dd/mm/aaaa" type="date" maxlength="10" required="required" title="Ingrese una fecha valida">
+				</div> 	 	
+				<div class="campo">
+					<label for="cantreserva">Cantidad</label>
+					<input id="cantreserva" name="cantreserva" value="1"  type="text" required="required" title="Ingrese un nombre valido">
+				</div> 	 		
+				<div class="campo">
+					<label for="observaciones">Observaciones</label>
+					<br />
+					<textarea id="observaciones" name="observaciones" type="text" rows="5" cols="40"></textarea>
+				</div> 	 	
+			</div> 
+				<button type="submit" value="Submit">Establecer Reserva</button>
+				<button type="reset" value="Reset">Borrar todo</button>
+		</form>
+
+	</body>
+</html>

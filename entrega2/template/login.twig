@@ -1,0 +1,34 @@
+{% extends 'layout.twig' %}
+{% block head %}
+   <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/login.css">
+{% endblock %}
+{% block nav %}
+
+    <li> <img class="liIcon" src="{{ path }}/styles/images/home-icon.png" alt="Frontend" >
+        <a href="{{ path }}/index.php/?action=Home&request=frontend">
+        Inicio
+    </a></li>
+{% endblock %}
+{% block content %}
+
+    <section class="principal">
+        <h2>Iniciar sesi&oacute;n</h2>
+        <div class="login-page">
+            <div class="form">
+                <form class="login-form" action="{{ path }}/index.php/?action=Sesion&request=login" method="post">
+
+                    <p class="error"> {{ data.mensaje }} </p>
+                    <p class="error"> {{ data.errores.general }} </p>
+
+                    <p class="error"> {{ data.errores.usuario }} </p>
+                    <input type="text" placeholder="nombre de usuario" class="input" name="usuario" pattern=".{2,20}" required="required" title="mínimo 2 carácteres, máximo 20" id="usuario" autofocus />
+                    <p class="error"> {{ data.errores.password }} </p>
+                    <input type="password" placeholder="contraseña" class="input" name="password" pattern=".{6,30}" required="required" title="mínimo 6 carácteres, máximo 30" id="password" />
+                    <button>Ingresar</button>
+                </form>
+                <p class="message"><a href="#">Olvidé mi cuenta</a></p>
+                <p class="message"><a href="{{ path }}/index.php/?action=Sesion&request=registrarse">Registrarse</a></p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

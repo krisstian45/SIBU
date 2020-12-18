@@ -1,0 +1,45 @@
+/* html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+} */
+
+.container {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    background: #51A04A;
+}
+
+.container {
+    max-width: 1200px
+}
+
+.item {
+    display: block;
+    text-align: center;
+    background: #D53131;
+}
+
+.c12 {
+    width: 100%
+}
+
+.c6 {
+    width: 50%
+}
+
+.articulo {
+    width: 49.5%;
+    display: inline-block;
+ }
+
+.aside {
+    width: 49.5%;
+    display: inline-block;
+
+}

@@ -1,0 +1,29 @@
+{% extends "ABM.twig" %}
+
+{% block content %}
+
+    <section class="principal">
+        <p class="error"> {{ data.mensaje.exito }} </p>
+
+        <h2>Menú del día</h2>
+        {% if data.listado is empty %}
+            <input class="enviar" type="button" onclick="location.href='{{ path }}/index.php/?action=MenuBuffet&request=vistaCrear';" value="Elegír el menú del día" />
+        {% else %}
+            <table id="listado" class="listado">
+
+                <tr>
+                    <td>{{ data[0] }}</td>
+                    <td>{{ data[1] }}</td>
+                    <td>
+                        <a href="{{ path }}/index.php/?action=MenuBuffet&request=vistaModificar&MenuBuffet={{ data[0] }}"><img title="Editar" src="https://grupo46.proyecto2016.linti.unlp.edu.ar/entrega1/imagenes/editar.png" class="tamaño" alt="Editar"></a>
+
+                        <a href="{{ path }}/index.php/?action=MenuBuffet&request=vistaBorrar&MenuBuffet={{ data[0]}}"><img title="Eliminar" src="https://grupo46.proyecto2016.linti.unlp.edu.ar/entrega1/imagenes/eliminar.png" class="tamaño" alt="Eliminar"></a>
+                    </td>
+                </tr>
+            </table>
+            <div id="black" class="margen">
+            </div>
+        {% endif %}
+    </section>
+
+{% endblock %}

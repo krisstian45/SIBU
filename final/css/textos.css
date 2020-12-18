@@ -1,0 +1,16 @@
+/* By emi: Por ahora solo estoy usando este css para la configuracion, pero la idea seria hacerlo generico
+para darle formato a todos los textos */
+
+.exito {
+	text-align: center;
+	margin-bottom: 1.3em;
+	font-size: 1.2em;
+	color: white;
+}
+
+.error {
+	text-align: center;
+	margin-bottom: 1.3em;
+	font-size: 1.2em;
+	color: red;
+}

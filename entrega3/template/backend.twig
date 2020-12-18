@@ -1,0 +1,80 @@
+{% extends "layout.twig" %}
+
+{% block head %}
+{% endblock %}
+{% block nav %}
+    {% block inner_nav %}
+        <li> <img class="liIcon" src="{{ path }}/styles/images/home-icon.png" alt="Inicio" >
+            <a id="home" href="{{ path }}/index.php/?action=Home&request=frontend">Inicio</a></li>
+    {% endblock %}
+        <li class="activado"> <img class="liIcon" src="{{ path }}/styles/images/operations-icon.png" alt="Operaciones" >
+            <a>Operaciones</a>
+            <ul>
+        {% if session.rol_id == '1' or session.rol_id == '2' %}
+                <li><img class="liIcon" src="{{ path }}/styles/images/food-icon.png" alt="inicio" >
+                    <a href="{{ path }}/index.php/?action=Producto&request=index">Productos</a></li>
+                <li><img class="liIcon" src="{{ path }}/styles/images/buy-icon.png" alt="inicio" >
+                    <a href="{{ path }}/index.php/?action=Compra&request=index">Compras</a></li>
+                <li><img class="liIcon" src="{{ path }}/styles/images/sell-icon.png" alt="inicio" >
+                    <a href="{{ path }}/index.php/?action=Venta&request=index">Ventas</a></li>
+            {% if session.rol_id == '1' %}
+                <li><img class="liIcon" src="{{ path }}/styles/images/user-icon.png" alt="inicio" >
+                    <a href="{{ path }}/index.php/?action=Usuario&request=index">Usuarios </a></li>
+            {% endif %}
+                <li><img class="liIcon" src="{{ path }}/styles/images/menu-icon.png" alt="inicio" >
+                    <a href="{{ path }}/index.php/?action=MenuBuffet&request=index">Men&uacute; buffet</a></li>
+        {% endif %}
+                <li><img class="liIcon" src="{{ path }}/styles/images/queue-icon.png" alt="inicio" >
+                    <a href="{{ path }}/index.php/?action=Pedido&request=index">Pedidos Online</a></li>
+            </ul>
+        </li>
+        {% if (session.rol_id == '1' or session.rol_id == '2') %}
+            <li class="activado"> <img class="liIcon" src="{{ path }}/styles/images/report-icon.png" alt="Listados" >
+                <a>Listados</a>
+                <ul>
+                    <li><img class="liIcon" src="{{ path }}/styles/images/balance-icon.png" alt="Faltantes" >
+                        <a href="{{ path }}/index.php/?action=Listado&request=productosFaltantes">Productos faltantes</a></li>
+                    <li><img class="liIcon" src="{{ path }}/styles/images/balance-icon.png" alt="Stock minimo" >
+                        <a href="{{ path }}/index.php/?action=Listado&request=productosStockMinimo">Productos con stock mínimo</a></li>
+                    <li><img class="liIcon" src="{{ path }}/styles/images/balance-icon.png" alt="Balance ganancias" >
+                        <a href="{{ path }}/index.php/?action=Listado&request=balanceGanancias">Balance de ganancias</a></li>
+                    <li><img class="liIcon" src="{{ path }}/styles/images/balance-icon.png" alt="Balance ventas" >
+                        <a href="{{ path }}/index.php/?action=Listado&request=balanceVentas">Balance de ventas</a></li>
+                </ul>
+            </li>
+        {% endif %}
+        {% if session.rol_id == '1' %}
+        <li><img class="liIcon" src="{{ path }}/styles/images/configuration-icon.png" alt="Configuracion" >
+            <a href="{{ path }}/index.php/?action=Configuracion&request=vistaConfiguracion">Configuraci&oacute;n</a></li>
+        {% endif %}
+        <li class="user"><a class="usuario">Bienvenido, {{ session.usuario }}</a></li>
+        <li class="user sesion">
+            <a href="{{ path }}/index.php/?action=Sesion&request=logout">Cerrar sesi&oacute;n</a>
+            <img class="liIcon" src="{{ path }}/styles/images/bye-icon.png" alt="Salir" >
+        </li>
+{% endblock %}
+{% block content %}
+<section class="principal">
+    {% if not data.menu %}
+            <article><h3>Aún no hay menú del día. </h3></article>
+        {% else %}
+        <article>
+            <h3>Menu del dia {{ data.menu.0.fecha}}: </h3>
+            <br />
+            {% for producto in data.menu %}
+                <p class="menuDia">{{ producto.nombre }}</p>
+            {% endfor %}
+        </article>
+        {% endif %}
+
+</section>
+<aside>
+
+            <br/>
+            <br/>
+
+            <h2>Subscribite a nuestro canal de telegram!</h2>
+            <p>Enterate del menú del día de hoy y mañana: </p>
+            <a style="color:blue" href="https://web.telegram.org/#/im?p=@BuffetGrupo46_bot">@BuffetGrupo46</a>
+</aside>
+{% endblock %}

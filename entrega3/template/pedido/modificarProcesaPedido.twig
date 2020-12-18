@@ -1,0 +1,66 @@
+{% extends "layout.twig" %}
+
+{% block head %}
+
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/altaProducto.css">
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/ventaProductos.css">
+
+{% endblock %}
+
+{% block nav %}
+
+    <li>
+        <a href="{{ path }}/index.php/?action=ProcesaPedido&request=index">Volver</a>
+    </li>
+
+{% endblock %}
+
+{% block content %}
+
+    <section class="principal">
+{#         <pre>
+            {{ dump(data.listado) }}
+        </pre> #}
+
+        {% if data.pedido is empty %}
+            <h3>Pedido no tomado.</h3>
+        {% else %}
+
+
+<h2>Aceptar pedido N° {{ data.pedido['pedido_id'] }}</h2>
+
+        <table class="listado">
+            <tr>
+                <td>
+                    <form action="{{ path }}/index.php/?action=ProcesaPedido&request=operar&operacion=aceptarPedido&pedido={{ data.pedido['pedido_id'] }}" method="POST">
+                        <input class="enviar" type="submit" value="Aceptar Pedido" style=" width: 300px;">
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <br/>
+
+<h2>Rechazar pedido N° {{ data.pedido['pedido_id'] }}</h2>
+        <table class="listado">
+            <tr>
+                <td>
+                    <form action="{{ path }}/index.php/?action=ProcesaPedido&request=operar&operacion=rechazarPedido&pedido={{ data.pedido['pedido_id'] }}" method="POST">
+                        <label >Observación<span class="asterisco">*</span></label>
+                        <textarea class="borde" name="observacion" required="required" maxlength="255" cols="27" rows="7"></textarea>
+                        <br/>
+                        <br/>
+                        <input class="cancelar" type="submit" value="Rechazar Pedido" style=" width: 300px;">
+                    </form>
+                    <br/>
+                    <br/>
+                </td>
+            </tr>
+        </table>
+
+
+        {% endif %}
+
+    </section>
+
+{% endblock %}

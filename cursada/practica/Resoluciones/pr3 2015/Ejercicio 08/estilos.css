@@ -1,0 +1,43 @@
+h1 {
+	text-indent: 4%;
+	font-family: arial;
+	color: teal;
+}
+
+p {
+	text-indent: 4%;
+}
+
+fieldset {
+	width: 30%;
+	margin-left: 4%;	
+	margin-top: 1.5%;
+	margin-bottom: 1.5%;
+}
+
+.campo {
+	margin: 0 auto;
+	margin-top: 1%;
+	width: 90%;
+}
+
+.campo label {
+	float: left;
+	width: 100%;
+	margin-bottom: 1%;
+	margin-top: 3%;
+}
+
+.campo input {
+	width: 95%;
+}
+
+.asterisco {
+	color: red
+}
+
+.boton {
+	margin-left: 8%;
+	float: left;
+}
+

@@ -1,0 +1,22 @@
+{% extends "listadoVenta.twig" %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/altaProducto.css">
+{% endblock %}
+
+	{% block nav %}
+                <li><a href="{{ path }}/index.php/?action=Venta&request=index">Volver</a></li>
+	{% endblock %}
+
+{% block content %}
+
+
+    <section class="principal">
+		<form form class="formato" action="{{ path }}/index.php/?action=Venta&request=operar&operacion=borrar" method="post">
+			<h1>Estas a punto de eliminar el detalle de la venta con fecha: {{ data.fecha }}. Se restablecerá el stock de los productos vendidos. ¿Estas seguro?</h1>
+			<input type="hidden" name="fecha" id="fecha" value="{{ data.fecha }}" >
+			<input name="borrar" class="enviar" type="submit" value="Borrar">
+		</form>
+	</section>
+
+
+{% endblock %}

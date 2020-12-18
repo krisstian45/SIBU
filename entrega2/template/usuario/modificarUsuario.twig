@@ -1,0 +1,8 @@
+{% extends "formularioCrearModificar.twig" %}
+                
+
+        {% block destino %}
+            <form class="formato" action="{{ path }}/index.php/?action=Usuario&request=operar&operacion=modificar" method="post">
+                    <h2>Modificar los campos donde sea necesario</h2>
+					<input type="hidden" name="id" id="id" value="{{ data.datosUsuario.id }}">
+        {% endblock %}

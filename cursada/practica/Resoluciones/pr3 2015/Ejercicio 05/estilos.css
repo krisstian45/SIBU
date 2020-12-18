@@ -1,0 +1,49 @@
+body {
+	background-color: #CCFF99
+}
+
+h1 {
+   text-align: center;
+   color: olive;
+   font-weight: bold;
+   font-size: 1.5em;
+}
+
+a {
+   text-decoration: none;
+}
+
+p {
+   font-weight: bold;
+   font-size: 1em;
+   font-family: arial;
+   text-align: center;
+}
+
+form {
+   padding-top: 2%; 
+   margin-top: 2%;
+}
+
+.campo {
+	width: 25%; 
+	margin: 0 auto; 
+ 	margin-top: 1%;
+}
+
+.campo label {
+   width: 60%; 
+   float: left; 
+   font-size: 1.2em; 
+   font-weight: bold; 
+   margin-top: 2%; 
+   margin-bottom: 2%; 
+}
+
+.campo input  {
+   width: 60%;
+}
+
+#boton {
+   margin: 2% 0% 3% 48%;
+}

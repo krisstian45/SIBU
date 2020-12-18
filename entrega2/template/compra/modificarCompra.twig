@@ -1,0 +1,36 @@
+{% extends "layout.twig" %}
+
+{% block head %}
+
+    <link rel="stylesheet" type="text/css" href="{{ path }}/styles/css/altaProducto.css">
+
+{% endblock %}
+
+{% block nav %}
+
+    <li><a href="{{ path }}/index.php/?action=Compra&request=index">Volver</a></li>
+
+{% endblock %}
+
+{% block content %}
+
+    <section class="principal">
+        <p class="error">{{ data.mensaje }}</p>
+        <h2>Usted va a modificar la compra del proveedor: {{ data.compra.proveedor }}</h2>
+        <form class="formato" action="{{ path }}/index.php/?action=Compra&request=modificarCompra&idCompra={{ data.compra.id }}" method="post">
+
+        	<label  for="proveedor">Proveedor </label>
+            <input class="borde" id="proveedor" name="proveedor" type="text" value="{{ data.compra.proveedor }}" required="required" pattern="[A-Za-z ]{2,20}" maxlength="20" title="Ingrese un mínimo de 2 letras, máximo 20">
+
+            <label for="cuit">CUIT Proveedor</label>
+            <input class="borde" id="cuit" name="cuit" type="text" value="{{ data.compra.proveedor_cuit }}" required="required" pattern="[1-9]{11}" maxlength="11" title="Ingrese los 11 digitos del numero de CUIT">
+
+            <br />
+            <br />
+
+            <input class="enviar" type="submit" value="Modificar compra" style="width: 300px;">
+        </form>
+        <a class="cancelar" href="{{ path }}/index.php/?action=Compra&request=index" style="width: 300px;">Cancelar</a>
+    </section>
+
+{% endblock %}
